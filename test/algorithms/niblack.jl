@@ -35,6 +35,10 @@
         @test binarized_img_1 == binarized_img_2
         @test binarized_img_1 == binarized_img_3
         @test binarized_img_1 == binarized_img_4
+
+        for T in generate_test_types([Float32, N0f8, Bool], [Gray])
+            @test eltype(binarize(T, img, f)) == T
+        end
     end
 
     @testset "Types" begin
@@ -45,7 +49,7 @@
         type_list = generate_test_types([Float32, N0f8], [Gray])
         for T in type_list
             img = T.(img_gray)
-            @test_reference "References/Niblack_Gray.png" Gray.(binarize(img, f))
+            @test_reference "References/Niblack_Gray.png" Gray.(binarize(img, f)) by=binarization_equality()
         end
 
         # Color3
@@ -55,7 +59,7 @@
         type_list = generate_test_types([Float32, N0f8], [RGB, Lab])
         for T in type_list
             img = T.(img_gray)
-            @test_reference "References/Niblack_Color3.png" Gray.(binarize(img, f))
+            @test_reference "References/Niblack_Color3.png" Gray.(binarize(img, f)) by=binarization_equality()
         end
     end
 

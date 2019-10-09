@@ -1,7 +1,7 @@
 name = "ImageBinarization"
 uuid = "cbc4b850-ae4b-5111-9e64-df94c024a13d"
 authors = ["Dr. Zygmunt L. Szpak <zygmunt.szpak@gmail.com>"]
-version = "0.1.1"
+version = "0.2.0"
 
 [deps]
 ColorTypes = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
@@ -22,6 +22,7 @@ ImageContrastAdjustment = "^0"
 ImageCore = ">=0.8.3"
 Polynomials = "^0"
 julia = "^1"
+ReferenceTests = "0.7, 0.8"
 
 [extras]
 ImageMagick = "6218d12a-5da1-5696-b52f-db25d2ecc6d1"
